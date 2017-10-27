@@ -1,20 +1,5 @@
-
-
-list.of.packages <- c("shiny", "shinyAce", "shinyBS",  "RSQLite", "gplots", "ggplot2", "e1071", "reshape2",
-                   "DT", "plotly", "limma", "DESeq2", "edgeR", "gage", "PGSEA", "fgsea",
-                   "ReactomePA", "pathview", "PREDA", "PREDAsampledata", "sfsmisc", "lokern",
-                   "multtest", "data.table", "limma", "DESeq2","edgeR","gage", "PGSEA", "fgsea", "ReactomePA", "pathview"
-)
-
-list.of.bio.packages  <- c(
-  "limma", "DESeq2", "edgeR", "gage", "PGSEA", "fgsea", "ReactomePA", "pathview", "PREDA", "PREDAsampledata", "sfsmisc", "lokern", "multtest",
-  "org.Ag.eg.db","org.At.tair.db","org.Bt.eg.db","org.Ce.eg.db","org.Cf.eg.db",
-  "org.Dm.eg.db","org.Dr.eg.db","org.EcK12.eg.db","org.EcSakai.eg.db","org.Gg.eg.db",
-  "org.Hs.eg.db","org.Hs.ipi.db","org.Mm.eg.db","org.Mmu.eg.db","org.Pf.plasmo.db",
-  "org.Pt.eg.db","org.Rn.eg.db","org.Sc.sgd.db","org.Sco.eg.db","org.Ss.eg.db",
-  "org.Tgondii.eg.db","org.Xl.eg.db"
-
-)
+list.of.packages <- c("shiny","RSQLite","gplots","ggplot2","e1071","shinyAce","shinyBS","reshape2","DT","plotly","RPostgreSQL")
+list.of.bio.packages  <- c("limma", "DESeq2","edgeR","gage", "PGSEA", "fgsea", "ReactomePA", "pathview","PREDA","PREDAsampledata","sfsmisc","lokern","multtest","hgu133plus2.db")
 
 #Install Require packages
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]

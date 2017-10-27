@@ -1,8 +1,22 @@
-version: '2'
+version: '3.4'
 services:
-  web:
+  plumber:
     build: .
     ports:
-      - "3838:3838"
+      - "8000:8000"
     volumes:
       - .:/code
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    ports: 
+      - "6379:6379"
+  db:
+    image: postgres

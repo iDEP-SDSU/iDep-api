@@ -10,3 +10,15 @@ Integrated Differential Expression and Pathway analysis (iDEP) of transcriptomic
 > Docker Awesome List: https://github.com/veggiemonk/awesome-docker
 
 You can install the idep by docker
+
+
+
+root@8cefc847e3e0:/tmp/data# psql -c "CREATE TABLE mapping  ( "id" TEXT,"ens" TEXT,"species" REAL,"idType" INTEGER );" -U idep -d idep
+CREATE TABLE
+root@8cefc847e3e0:/tmp/data# psql -c "COPY mapping(id, ens, species, idType) FROM '/tmp/data/map.csv' delimiter ',' csv header;" -U idep -d idep
+
+
+## Swagger 
+
+### predata
+### kmean 
