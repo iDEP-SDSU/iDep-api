@@ -4,7 +4,6 @@
       <h1 class="fl w-100 mt5 f5 ttu tracked fw6">Step1: Pre Data Process </h1>
       <article class="sans-serif pv2 fl w-100 ">
         <h2 class="f4 f1-ns fw6 mb2">Pre-process dataset</h2>
-        
         <div>Keep genes with minimal counts per million (CPM) in at least n libraries:</div>
       </article>
       <div class="cf">
@@ -36,6 +35,7 @@
           </section>
         </article>
       </div>
+      
       <!-- 
       <ul class="list">
           <li v-for="user in users" :key="user.id">
@@ -43,17 +43,21 @@
           </li>
       </ul>
       -->
+      
     </div>
-    
   </div>
 </template>
 
 <script>
   // import axios from '~/plugins/axios' ss
   import { mapState } from "vuex"
+  import Distribution from '~/components/Distribution.vue'
 
   export default {
     computed : mapState(["users"]),
+    components: {
+      Distribution: Distribution,
+    },
     methods: {
       loadData(){
         console.log("load Data")

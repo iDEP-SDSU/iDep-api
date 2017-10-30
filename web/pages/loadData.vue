@@ -49,13 +49,7 @@
           <img class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot3">  
         </article>
       </div>
-      <!-- 
-      <ul class="list">
-          <li v-for="user in users" :key="user.id">
-              {{user.login}}
-          </li>
-      </ul>
-      -->
+      <Distribution/>
     </div>
   </div>
 </template>
@@ -64,19 +58,35 @@
   // import axios from '~/plugins/axios' ss
   import { mapState } from "vuex"
   import axios from "~/plugins/axios"
+  import Distribution from '~/components/Distribution.vue'
 
   export default {
-    computed : mapState([
-        // "users"
-    ]),
+    // computed : mapState([
+    //     // "users"
+    // ]),
+    components: {
+      Distribution: Distribution,
+    },
     data() {
       return{
         plot1: "",
         plot2: "",
-        plot3: ""
+        plot3: "",
+        target: {}
       }
     },
     methods: {
+      async transForm(){
+        axios.get("transform").then(res=>{
+          console.log(res)
+        })
+      },
+      async logData(type){
+        var vm = this;
+        axios.get("transform/"+type).then(res=>{
+          vm.target = res.data
+        })
+      },
       async loadData(){
         var vm = this;
         console.log("load Data")

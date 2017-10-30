@@ -1,0 +1,119 @@
+<template>
+  <div>
+    <section id="dist"></section>
+    <button class="btn" @click="densityLog()">Draw Log Density</button>
+    <button class="btn" @click="drawDensity('log')">draw density(log) </button>
+    <button class="btn" @click="drawDensity('vst')">draw density(vst) </button>
+    <button class="btn" @click="drawDensity('log2')">draw density(log2) </button>
+    <svg width="960" height="500"></svg>
+  </div>
+
+</template>
+<script>
+  import * as d3 from "d3"
+  import * as jStat from "jStat"
+  import axios from "~/plugins/axios"
+  export default {
+    data() {
+      return{
+        transformed: {
+          log:{},
+          vst:{},
+          log2:{}
+        },
+      }
+    },
+    created(){
+      var vm = this;
+      axios.get("transform").then(res=>{
+          console.log("transform is ready!")
+          vm.densityLog("log")
+          vm.densityLog("vst")
+          vm.densityLog("log2")
+      })
+    },
+    methods: {
+      async densityLog(type){
+        var vm = this;
+        await axios.get("transform/"+type).then(res=>{
+          vm.transformed[type] = res.data
+        })
+      },
+      drawDensity(type){
+        var vm = this;
+        var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height"),
+        margin = {top: 20, right: 30, bottom: 30, left: 40};
+
+        var x = d3.scaleLinear()
+            .domain([0, 20])
+            .range([margin.left, width - margin.right]);
+
+        var y = d3.scaleLinear()
+            .domain([0, 0.45])
+            .range([height - margin.bottom, margin.top]);
+        svg.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+            .call(d3.axisBottom(x))
+          .append("text")
+            .attr("x", width - margin.right)
+            .attr("y", -6)
+            .attr("fill", "#000")
+            .attr("text-anchor", "end")
+            .attr("font-weight", "bold")
+            .text("Ge-Lab");
+
+        svg.append("g")
+            .attr("class", "axis axis--y")
+            .attr("transform", "translate(" + margin.left + ",0)")
+            .call(d3.axisLeft(y).ticks(null, "%"));
+
+        Object.keys(vm.transformed[type]).forEach(name=>{
+          var density = vm.transformed[type][name];
+          var tData = []
+          density.x.forEach(function(x, i){
+              var temp = {x:x, y:density.y[i]}
+              tData.push(temp)
+            }
+          )
+          console.log(tData)
+          svg.append("path")
+            .datum(tData)
+            .attr("fill", "none")
+            .attr("stroke", "#000")
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+              .curve(d3.curveBasis)
+              .x(function(d) { return x(d.x); })
+              .y(function(d) { return y(d.y); }));
+        })
+      }
+    },
+    mounted(){
+      
+
+
+    }
+
+}
+</script>
+<style>
+
+  /* 13. Basic Styling with CSS */
+
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
+</style>
