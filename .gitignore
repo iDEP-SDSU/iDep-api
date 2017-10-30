@@ -28,3 +28,5 @@ shinyImp
 RSet
 newVersion
 .vscode
+
+web/node_modules
