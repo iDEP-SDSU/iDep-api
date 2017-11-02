@@ -1,14 +1,33 @@
 <template>
-<nav class="pv4 ph3 ph5-m ph6-l mid-gray">
-  <a href="/" class="f3 ttu tracked dib ph2 link mt0 mid-gray dim"> iDEP 0.4 </a>
-    <a href="/loaddata" class="f6 dib ph2 link mid-gray dim"> Load Data </a>
-    <a href="/predata" class="f6 dib ph2 link mid-gray dim"> Pre-Process </a>
-    <a href="/heatmap" class="f6 dib ph2 link mid-gray dim"> Heatmap </a>
-    <a href="/kmean" class="f6 dib ph2 link mid-gray dim"> k-means </a>
-    <a href="/pca" class="f6 dib ph2 link mid-gray dim"> PCA </a>
-    <a href="/degs" class="f6 dib ph2 link mid-gray dim"> DEGs </a>
-    <a href="/pathways" class="f6 dib ph2 link mid-gray dim"> Pathways </a>
-    <a href="/chromosome" class="f6 dib ph2 link mid-gray dim"> Chromosome </a>
-    <a href="/r" class="f6 dib ph2 link mid-gray dim"> R </a>
+<nav class="nav-bar bg-washed-blue pv4 ph3 ph2-m ph3-l mid-gray">
+    <nuxt-link to="/" class="f5 f4-m f3-l ttu tracked dib ph2 link mt0 mid-gray dim">iDEP 0.4</nuxt-link>
+    <br>
+    <nuxt-link to="/loaddata" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Load Data </nuxt-link>
+    <nuxt-link to="/predata" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Pre-Process </nuxt-link>
+    <nuxt-link to="/heatmap" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Heatmap </nuxt-link>
+    <nuxt-link to="/kmean" class="menu underline-hover f6 dib ph2 link mid-gray dim"> k-means </nuxt-link>
+    <nuxt-link to="/pca" class="menu underline-hover f6 dib ph2 link mid-gray dim"> PCA </nuxt-link>
+    <nuxt-link to="/degs" class="menu underline-hover f6 dib ph2 link mid-gray dim"> DEGs </nuxt-link>
+    <nuxt-link to="/pathways" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Pathways </nuxt-link>
+    <nuxt-link to="/chromosome" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Chromosome </nuxt-link>
+    <nuxt-link to="/r" class="menu underline-hover f6 dib ph2 link mid-gray dim"> R </nuxt-link>
+    <nuxt-link to="/" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Github </nuxt-link>
+    <nuxt-link to="/login" class="menu underline-hover f6 dib ph2 link mid-gray dim"> Login </nuxt-link>
 </nav>
 </template>
+<style>
+.nav-bar{
+  z-index: 99;
+}
+.nuxt-link-exact-active{
+    font-weight: bold; 
+    text-decoration: underline;
+}
+@media (min-width: 400px) {
+  /* hundreds of lines later */
+  .menu {
+
+    font-size:12px !important;
+  }
+}
+</style>

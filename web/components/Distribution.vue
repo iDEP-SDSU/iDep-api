@@ -1,42 +1,38 @@
+<!-- 
+  Density Plot Component 
+  TODO: connect state data 
+  connect Log view
+-->
 <template>
   <div>
     <section id="dist"></section>
-    <button class="btn" @click="densityLog()">Draw Log Density</button>
+    <button class="btn" @click="allDensityData()">Draw Log Density</button>
     <button class="btn" @click="drawDensity('log')">draw density(log) </button>
     <button class="btn" @click="drawDensity('vst')">draw density(vst) </button>
     <button class="btn" @click="drawDensity('log2')">draw density(log2) </button>
     <svg width="960" height="500"></svg>
   </div>
-
 </template>
 <script>
   import * as d3 from "d3"
   import * as jStat from "jStat"
+  import { mapState } from "vuex"
   import axios from "~/plugins/axios"
   export default {
     data() {
       return{
-        transformed: {
-          log:{},
-          vst:{},
-          log2:{}
-        },
       }
     },
-    created(){
-      var vm = this;
-      axios.get("transform").then(res=>{
-          console.log("transform is ready!")
-          vm.densityLog("log")
-          vm.densityLog("vst")
-          vm.densityLog("log2")
-      })
-    },
+    computed : mapState([
+        "transData"
+    ]),
     methods: {
-      async densityLog(type){
-        var vm = this;
-        await axios.get("transform/"+type).then(res=>{
-          vm.transformed[type] = res.data
+      async allDensityData(){
+        axios.get("transform").then(res=>{
+          console.log("transform is ready!")
+          this.$store.dispatch('GET_TRANS', 'log')
+          this.$store.dispatch('GET_TRANS', 'log2')
+          this.$store.dispatch('GET_TRANS', 'vst')
         })
       },
       drawDensity(type){
@@ -70,15 +66,14 @@
             .attr("transform", "translate(" + margin.left + ",0)")
             .call(d3.axisLeft(y).ticks(null, "%"));
 
-        Object.keys(vm.transformed[type]).forEach(name=>{
-          var density = vm.transformed[type][name];
+        Object.keys(vm.transData[type]).forEach(name=>{
+          var density = vm.transData[type][name];
           var tData = []
           density.x.forEach(function(x, i){
               var temp = {x:x, y:density.y[i]}
               tData.push(temp)
             }
           )
-          console.log(tData)
           svg.append("path")
             .datum(tData)
             .attr("fill", "none")

@@ -11,6 +11,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://cdn.plot.ly/plotly-latest.min.js' }
     ]
   },
   /*
@@ -22,10 +25,15 @@ module.exports = {
   */
   css:[
     "tachyons/css/tachyons.min.css",
+    "~/assets/main.css"
     // "tachyons-debug/css/tachyons-debug.min.css"
   ],
   build:{
     vendor: ["axios"]
-  }
+  },
+  plugins: [
+    "~/plugins/filters"
+  ]
+
   
 }

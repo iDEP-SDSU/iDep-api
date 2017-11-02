@@ -25,11 +25,6 @@
         </p>
       </div>
     </article>
-    <ul class="list">
-      <li v-for="user in users" :key="user.id">
-        {{user.login}}
-      </li>
-    </ul>
   </div>
 </template>
 <script>

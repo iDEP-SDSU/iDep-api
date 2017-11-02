@@ -62,7 +62,6 @@
       loadData(){
         console.log("load Data")
         // update process status
-
       }
     }
   }
