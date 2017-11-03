@@ -3,7 +3,7 @@ services:
   plumber:
     build:
       context: .
-      dockerfile: imp/Dockerfile
+      dockerfile: server/Dockerfile
     command: './Rscript plumberServer.R'
     volumes:
      - ./server:/usr/local/src/plumber
