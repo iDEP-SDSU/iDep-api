@@ -7,9 +7,9 @@
   <div>
     <section id="dist"></section>
     <button class="btn" @click="allDensityData()">Draw Log Density</button>
-    <button class="btn" @click="drawDensity('log')">draw density(log) </button>
-    <button class="btn" @click="drawDensity('vst')">draw density(vst) </button>
-    <button class="btn" @click="drawDensity('log2')">draw density(log2) </button>
+    <button v-if="available" class="btn" @click="drawDensity('log')">draw density(log) </button>
+    <button v-if="available" class="btn" @click="drawDensity('vst')">draw density(vst) </button>
+    <button v-if="available" class="btn" @click="drawDensity('log2')">draw density(log2) </button>
     <svg width="960" height="500"></svg>
   </div>
 </template>
@@ -21,6 +21,7 @@
   export default {
     data() {
       return{
+        available: false
       }
     },
     computed : mapState([
@@ -28,11 +29,13 @@
     ]),
     methods: {
       async allDensityData(){
+        var vm = this;
         axios.get("transform").then(res=>{
           console.log("transform is ready!")
           this.$store.dispatch('GET_TRANS', 'log')
           this.$store.dispatch('GET_TRANS', 'log2')
           this.$store.dispatch('GET_TRANS', 'vst')
+          vm.available = true
         })
       },
       drawDensity(type){
@@ -88,11 +91,7 @@
       }
     },
     mounted(){
-      
-
-
     }
-
 }
 </script>
 <style>

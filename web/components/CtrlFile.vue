@@ -1,8 +1,7 @@
 <template>
   <div class="code ctrlContainer customFont bg-washed-blue near-black">
-    header>nav>nuxt-link[to]*11px
-    <h4>File Upload</h4>
-    <h4>File Upload</h4>
+    <h4>Current Target Input File</h4>
+    <h4>Available input File data</h4>
     <div> Click All the Tabs for results </div>
     <div> 1. Choose data type </div>
 

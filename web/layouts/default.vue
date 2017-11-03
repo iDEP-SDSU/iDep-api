@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-vue class="code" style="position: fixed; width:100%; top:0" />
-    <nuxt style="margin-top: 85px;" />
+    <nuxt style="margin-top: 125px;" />
     <footer-vue class="code" />
   </div>
 </template>

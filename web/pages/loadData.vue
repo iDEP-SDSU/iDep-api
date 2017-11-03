@@ -1,67 +1,49 @@
 <template>
-  <section class="mt-7">
+  <section>
     <div class="cf center" style="max-width:1280px">
       <div class="sans-serif pv2 fl w-100 w-20-l pr0 pr2-l">
         <TaskStatus/>
         <CtrlFile/>
       </div>
       <div class="sans-serif pv2 fl w-100 w-80-l pr0 pr2-l">
-        <h1 class="fl pa2 w-100 mt2 f5 ttu tracked fw6">Step0: Load Data </h1>
+        <!-- 
+        <h1 class="fl pa2 w-100 mt2 f5 ttu tracked fw6">Step 0: Load Data </h1>
+        -->
         <article class="bg-yellow sans-serif pv2 fl w-100 ">
-          <h2 class="f4 pa2 f1-ns fw6 mb2">Load Dataset</h2>
+          <h2 class="f5 pa2 f5-ns fw6 mb2">Load Dataset</h2>
           <!-- <div>Keep genes with minimal counts per million (CPM) in at least n libraries:</div> -->
         </article>
-
         <div class="cf">
           <article class="sans-serif pv2 fl w-100 w-50-l pr0 pr2-l">
-            <p class="f6 pa3 f5-ns measure-wide lh-copy mt0">
-              Integrated Differential Expression and Pathway analysis (iDEP) of transcriptomic data. See documentation and manuscript. Based on annotation of 69 metazoa and 42 plant genomes in Ensembl BioMart as of 6/4/2017. Additional data from KEGG, Reactome, MSigDB (human), GSKB (mouse) and araPath (arabidopsis). For feedbacks or data contributions (genes and GO mapping of any species), please contact us, or visit our homepage. Send us suggestions or any error message to help improve iDEP.
-            </p>
             <!-- radio buttons -->
+            <h2 class="f5 pa2 f5-ns fw6 mb2">Select Demo Input Data</h2>
             <ul class="list">
-              <li><input type="radio" name="picked" value="KEGG" v-model="picked"> KEGG </li>
               <li><input type="radio" name="picked" value="SAILFISH" v-model="picked"> SAILFISH</li>
+              <li><input type="radio" name="picked" value="KEGG" v-model="picked"> KEGG </li>
             </ul>
-            <div>{{picked}}</div>
+            <div><code>{{picked}}</code> demo data has been selected. </div>
             <div style="margin:8px;">
-              <a @click="loadDataAll" class="btn btn-primary">Load Demo Data</a>
+              <a @click="loadDataAll" class="btn btn-primary">Load Demo Data Plot</a>
+              <!-- 
               <a @click="logData('log')" class="btn btn-primary">Load log transformed Data</a>
               <a @click="logData('log2')" class="btn btn-primary">Load log2 transformed Data</a>
               <a @click="logData('vst')" class="btn btn-primary">Load vst transformed Data</a>
+              -->
             </div>
-            
           </article>
-          <article class="sans-serif pv2 fl w-100 w-50-l pr0 pr2-l">
+        </div>
+        <div class="cf">
+          <article class="sans-serif pv2 fl w-100 pr0 pr2-l">
             <section class="f6 f5-ns measure-wide lh-copy mt0">
-              <div class="pa3">
-                Users can upload a CSV or tab-delimited text file with the first column as gene IDs. For RNA-seq data, read count per gene is recommended. Also accepted are normalized expression data based on FPKM, RPKM, or DNA microarray data. iDEP can convert most types of common gene IDs to Ensembl gene IDs, which is used internally for enrichment and pathway analyses. iDEP parses column names to define sample groups. To define 3 biological samples (Control, TreatmentA, TreatmentB) with 2 replicates each, column names should be:
-              </div>
-              <div class="code f6 ba bw1 br4 ma1">
-                <div style="padding:8px;">Ctrl_1, Ctrl_2, TrtA_1, TrtA_2, TrtB_1, TrtB_2.</div>
-              </div>
-              <hr class="bar" />
-              <div class="pa3">
-                For factorial design, use underscore "_" to separate factors such as genetic background (wide type vs. mutant:WT vs. Mu) and experimental condition (Ctrl vs. Trt). Currently, only two factors are allowed. To define an 2x2 factorial design, use column names like:
-              </div>
-              <div class="code f6 ba bw1 br4 ma1">
-                <div style="padding:8px;">WT_Ctrl_1, WT_Ctrl_2, WT_Trt_1, WT_Trt_2, Mu_Ctrl_1, Mu_Ctrl_2, Mu_Trt_1, Mu_Trt_2</div>
-              </div>
+              <img v-if="plot1" class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot1">
+              <img v-if="plot2" class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot2">
+              <img v-if="plot3" class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot3">
             </section>
           </article>
         </div>
-        
-        <div class="cf">
-          <article class="sans-serif pv2 fl w-100 w-33-l pr0 pr2-l">
-            <img class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot1">  
-          </article>
-          <article class="sans-serif pv2 fl w-100 w-33-l pr0 pr2-l">
-            <img class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot2">  
-          </article>
-          <article class="sans-serif pv2 fl w-100 w-33-l pr0 pr2-l">
-            <img class="imgCenter mw-100 ba b--dashed bw1" :src="'data:image/png;base64,' + plot3">  
-          </article>
+        <div class="ma2">
+          <Distribution/>
         </div>
-        <Distribution/>
       </div>
     </div>
   </section>
@@ -90,7 +72,7 @@
     },
     data() {
       return{
-        picked   : 'one',
+        picked : 'SAILFISH',
         plot1: "",
         plot2: "",
         plot3: "",
