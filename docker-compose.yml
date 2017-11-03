@@ -1,11 +1,15 @@
 version: '3.4'
 services:
   plumber:
-    build: .
-    ports:
-      - "8000:8000"
+    build:
+      context: .
+      dockerfile: imp/Dockerfile
+    command: './Rscript plumberServer.R'
     volumes:
-      - .:/code
+     - ./server:/usr/local/src/plumber
+    restart: always
+    ports:
+     - "8000:8000"
   redis:
     image: redis:alpine
     ports:
