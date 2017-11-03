@@ -8,7 +8,7 @@ RUN apt-get update -qq && apt-get install -y \
   libcurl4-gnutls-dev
 
 # install additional packages
-COPY ./RSet /usr/local/src/myscripts
+COPY ./classes /usr/local/src/myscripts
 WORKDIR /usr/local/src/myscripts
 
 CMD ["Rscript", "packages.R"]
