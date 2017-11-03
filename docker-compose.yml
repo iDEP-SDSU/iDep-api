@@ -17,6 +17,4 @@ services:
         max_attempts: 3
         window: 120s
     ports: 
-      - "6379:6379"
-  db:
-    image: postgres
+      - "3000:6379"
