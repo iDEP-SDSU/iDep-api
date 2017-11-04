@@ -1,6 +1,6 @@
 library(plumber)
-# source('installLib.R')
-# source('readData.R')
+source('installLib.R')
+source('readData.R')
 source('kmean/kmean.R')
 source('setup.R', echo=F)
 
