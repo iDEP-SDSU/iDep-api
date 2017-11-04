@@ -1,5 +1,4 @@
 list.of.packages <- c("RSQLite","gplots","ggplot2","e1071","reshape2","DT","RPostgreSQL", "dplyr")
-
 list.of.bio.packages  <- c( "limma", "DESeq2","edgeR","gage", "PGSEA", "fgsea", "ReactomePA", "pathview","PREDA","PREDAsampledata",
   "sfsmisc","lokern","multtest","hgu133plus2.db")
 #Install Require packages

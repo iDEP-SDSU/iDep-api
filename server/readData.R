@@ -24,7 +24,7 @@ ReadData = setRefClass("ReadData",
   methods = list(
     initialize = function() {
       dataType =c(TRUE)
-      inFile = "./data_go/GSE37704_sailfish_genecounts.csv" #"expression1_no_duplicate.csv"
+      inFile = "data_go/GSE37704_sailfish_genecounts.csv" #"expression1_no_duplicate.csv"
       # 0.Read file
       x <- read.csv(inFile)	# try CSV
       isLessThen3Col = dim(x)[2] <= 2
