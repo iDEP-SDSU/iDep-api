@@ -5,8 +5,8 @@ User = setRefClass("User", fields=list(users = "ANY"),
       
     },
     addNewUserSession = function(){
-      library(uuid)
-      uuid::UUIDgenerate()
+      # library(uuid)
+      # uuid::UUIDgenerate()
     },
     checkAlive = function() {
       

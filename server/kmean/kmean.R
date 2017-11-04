@@ -1,6 +1,3 @@
-# kmean
-library(R6)
-
 KmeansDrive = R6Class("KmeansDrive", 
   public = list(
     mycolors = NULL,
@@ -107,34 +104,34 @@ KmeansDrive = R6Class("KmeansDrive",
 )
 
 
-readDataObj <- ReadData()
-data <- readDataObj$finalResult$rawCounts
+# readDataObj <- ReadData()
+# data <- readDataObj$finalResult$rawCounts
 
-# Initialize Kmean 
-kmeanObj <- KmeansDrive$new(data)
-kmeanObj$heatmapData
+# # Initialize Kmean 
+# kmeanObj <- KmeansDrive$new(data)
+# kmeanObj$heatmapData
 
-layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
+# layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
 
-n=2000 
-k=4
-kmeanObj$preprocess(n=n, k=k)
-kmeanObj$myheatmap2(kmean.result$bar, 1000)
+# n=2000 
+# k=4
+# kmeanObj$preprocess(n=n, k=k)
+# kmeanObj$myheatmap2(kmean.result$bar, 1000)
 
-n=3000 
-k=4
-kmeanObj$preprocess(n=n, k=k)
-kmeanObj$myheatmap2(kmean.result$bar, 1000)
+# n=3000 
+# k=4
+# kmeanObj$preprocess(n=n, k=k)
+# kmeanObj$myheatmap2(kmean.result$bar, 1000)
 
-n=5000 
-k=4
-kmeanObj$preprocess(n=n, k=k)
-kmeanObj$myheatmap2(kmean.result$bar, 1000)
+# n=5000 
+# k=4
+# kmeanObj$preprocess(n=n, k=k)
+# kmeanObj$myheatmap2(kmean.result$bar, 1000)
 
-n=7000 
-k=4
-kmeanObj$preprocess(n=n, k=k)
-kmeanObj$myheatmap2(kmean.result$bar, 1000)
+# n=7000 
+# k=4
+# kmeanObj$preprocess(n=n, k=k)
+# kmeanObj$myheatmap2(kmean.result$bar, 1000)
 
 
 
