@@ -2,23 +2,23 @@ version: '3.4'
 services:
   plumber:
     build:
-      context: .
-      dockerfile: server/Dockerfile
-    command: './Rscript plumberServer.R'
+      context: ./server
+      dockerfile: Dockerfile
+    command: 'Rscript plumberServer.R'
     volumes:
-     - ./server:/usr/local/src/plumber
-    restart: always
+      - ./server:/usr/local/src/plumber
+    # restart: always
     ports:
-     - "8000:8000"
+      - "8000:8000"
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+    # deploy:
+    #   restart_policy:
+    #     condition: on-failure
+    #     delay: 5s
+    #     max_attempts: 3
+    #     window: 120s
     ports: 
       - "3000:6379"

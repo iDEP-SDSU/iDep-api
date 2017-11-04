@@ -11,7 +11,7 @@ RUN apt-get update -qq && apt-get install -y \
 COPY ./classes /usr/local/src/myscripts
 WORKDIR /usr/local/src/myscripts
 
-CMD ["Rscript", "packages.R"]
-CMD ["Rscript", "bioLitePackages.R"]
+# CMD ["Rscript", "packages.R"]
+# CMD ["Rscript", "bioLitePackages.R"]
 
-CMD ["/usr/bin/shiny-server.sh"]
+# CMD ["/usr/bin/shiny-server.sh"]

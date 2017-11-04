@@ -8,13 +8,13 @@ RUN apt-get update -qq && apt-get install -y \
 
 RUN R -e 'install.packages(c("devtools"))'
 RUN R -e 'devtools::install_github("trestletech/plumber")'
-RUN R -e 'install.packages("ggplot2", dep = TRUE)'
-RUN R -e 'install.packages(c("data.table","RCurl", "earth", "mda", "faraway", "lattice", "caret"))'
-RUN R -e 'install.packages(c("earth", ""))'
+# RUN R -e 'install.packages("ggplot2", dep = TRUE)'
+# RUN R -e 'install.packages(c("data.table","RCurl", "earth", "mda", "faraway", "lattice", "caret"))'
+# RUN R -e 'install.packages(c("earth", ""))'
 
 COPY ./ /usr/local/src/plumber/
 WORKDIR /usr/local/src/plumber/
 VOLUME /usr/local/src/plumber/
 
 EXPOSE 8000
-CMD ["Rscript", "/lib/baseLib.R"]
+# CMD ["Rscript", "plumberServer.R"]

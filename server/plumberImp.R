@@ -128,3 +128,8 @@ normalMean <- function(res) {
   kmeanObj$myHeatMapData
 }
 
+#* @get /helloWorld
+normalMean <- function(res) {
+  list(msg="good")
+}
+
