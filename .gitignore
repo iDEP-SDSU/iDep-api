@@ -11,7 +11,7 @@ plumber_*.tar.gz
 .temp
 .old
 .old_impl
-.data_go
+
 *.job
 google_analytics.js
 *.Rproj
