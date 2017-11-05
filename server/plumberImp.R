@@ -1,14 +1,14 @@
 
-readDataObj <- ReadData()
-data <- readDataObj$finalResult$rawCounts
-preDataObj <- PreWork(data)
-preDataObj$buildRLog()
-count <- 0
+# readDataObj <- ReadData()
+# data <- readDataObj$finalResult$rawCounts
+# preDataObj <- PreWork(data)
+# preDataObj$buildRLog()
+# count <- 0
 
 #* @filter logger
 function(req){
-  cat(as.character(Sys.time()), "-", 
-    req$REQUEST_METHOD, req$PATH_INFO, "-", 
+  cat(as.character(Sys.time()), "-",
+    req$REQUEST_METHOD, req$PATH_INFO, "-",
     req$HTTP_USER_AGENT, "@", req$REMOTE_ADDR, "\n")
   plumber::forward()
 }
@@ -29,7 +29,7 @@ cors <- function(res) {
 
 #* @get /status
 function(req){
-  
+
   status = list(msg = "ALIVE", date = Sys.time())
   return(status)
 }
@@ -132,4 +132,3 @@ normalMean <- function(res) {
 normalMean <- function(res) {
   list(msg="good")
 }
-
