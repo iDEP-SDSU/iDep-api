@@ -1,9 +1,9 @@
 
-# readDataObj <- ReadData()
-# data <- readDataObj$finalResult$rawCounts
-# preDataObj <- PreWork(data)
-# preDataObj$buildRLog()
-# count <- 0
+readDataObj <- ReadData()
+data <- readDataObj$finalResult$rawCounts
+preDataObj <- PreWork(data)
+preDataObj$buildRLog()
+count <- 0
 
 #* @filter logger
 function(req){
