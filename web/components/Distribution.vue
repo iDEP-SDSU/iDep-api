@@ -15,7 +15,7 @@
 </template>
 <script>
   import * as d3 from "d3"
-  import * as jStat from "jStat"
+  // import * as jStat from "jStat"
   import { mapState } from "vuex"
   import axios from "~/plugins/axios"
   export default {

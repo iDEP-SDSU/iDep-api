@@ -1,0 +1,36 @@
+[debug] [2017-11-05T21:33:11.195Z] ----------------------------------------------------------------------
+[debug] [2017-11-05T21:33:11.197Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-05T21:33:11.198Z] CLI Version:   3.13.1
+[debug] [2017-11-05T21:33:11.198Z] Platform:      darwin
+[debug] [2017-11-05T21:33:11.198Z] Node Version:  v6.11.1
+[debug] [2017-11-05T21:33:11.199Z] Time:          Sun Nov 05 2017 15:33:11 GMT-0600 (CST)
+[debug] [2017-11-05T21:33:11.199Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-05T21:33:11.214Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-05T21:33:11.214Z] > authorizing via signed-in user
+[debug] [2017-11-05T21:33:11.217Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-05T21:33:11.217Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/RrXskMJcDpqAhyNFKDg1BP5mfsDNUR19ncdvJGj2wNM',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Nov 05 2017 15:33:11 GMT-0600 (CST)
+[debug] [2017-11-05T21:33:11.506Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-05T21:33:11.538Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/firebase-bcloud  
+ Sun Nov 05 2017 15:33:11 GMT-0600 (CST)
+[debug] [2017-11-05T21:33:12.031Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-05T21:33:12.032Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/bcloud/tokens  
+ Sun Nov 05 2017 15:33:12 GMT-0600 (CST)
+[debug] [2017-11-05T21:33:12.623Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/kruny1001/Desktop/crnt STAT Project/iDep-api/web'...
+[info] 
+[debug] [2017-11-05T21:33:12.627Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/firebase-bcloud  
+ Sun Nov 05 2017 15:33:12 GMT-0600 (CST)
+[debug] [2017-11-05T21:33:12.958Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-05T21:33:12.959Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/172712893865/clients/_:getWebAppConfig  
+ Sun Nov 05 2017 15:33:12 GMT-0600 (CST)
+[debug] [2017-11-05T21:33:13.338Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist
+[info] ✔  hosting: Local server: http://localhost:5000
+
