@@ -17,15 +17,15 @@ kmeanObj <- KmeansDrive$new(data)
 
 kmeanObj$originData
 kmeanObj$heatmapData
-kmeanObj$bar
+
 
 
 kmeanObj2 <- KmeansDrive$new(data)
 kmeanObj2$originData
 
 
-kmeanObj$myheatmapProcess(n=1000)
-kmeanObj$myHeatMapData
+kmeanObj$preprocess(n=1000)
+kmeanObj$heatmapData
 
 # kmeanObj$heatmapData
 kmeanObj$myheatmap2(n=1000)
@@ -36,6 +36,8 @@ toc()
 n=3000
 k=4
 kmeanObj$preprocess(n=n, k=k)
+kmeanObj$heatmapData
+
 kmeanObj$myheatmap2(1000)
 
 

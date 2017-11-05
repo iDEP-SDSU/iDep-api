@@ -47,7 +47,6 @@ KmeansDrive = R6Class("KmeansDrive",
     },
     preprocess = function(n=2000, k=4){
       x <- self$originData
-
       x = 100* x[1:n,] / apply(x[1:n,],1,function(y) sum(abs(y)))
       cl = kmeans(x, k, iter.max = 50)
       hc <- self$hclust2(self$dist2(cl$centers-apply(cl$centers,1,mean) )  )# perform cluster for the
@@ -59,6 +58,7 @@ KmeansDrive = R6Class("KmeansDrive",
       afterMean <- kmean.result$x - apply(kmean.result$x,1,mean)
       self$heatmapData <- afterMean
     },
+    
     myheatmap2 = function (bar=NULL, n=-1, mycolor=1, clusterNames=NULL) {
       set.seed(2)
       # number of genes to show

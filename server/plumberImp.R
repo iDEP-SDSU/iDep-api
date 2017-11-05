@@ -124,8 +124,8 @@ normalMean <- function(res) {
 #* @get /heatmapdata
 normalMean <- function(res) {
   kmeanObj <- KmeansDrive$new(data)
-  kmeanObj$myheatmapProcess(n=1000)
-  kmeanObj$myHeatMapData
+  kmeanObj$preprocess(n=1000)
+  kmeanObj$heatmapData
 }
 
 #* @get /helloWorld
