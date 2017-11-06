@@ -1,10 +1,10 @@
 version: '3.4'
 services:
-  web_: 
+  web_1: 
     build: 
       context: ./web
       dockerfile: Dockerfile
-    command: 'npm run build'
+    command: 'npm start'
     volumes:
       - ./web:/usr/src/app
     ports:
