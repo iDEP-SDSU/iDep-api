@@ -1,5 +1,14 @@
 version: '3.4'
 services:
+  web: 
+    build: 
+      context: ./web
+      dockerfile: Dockerfile
+    command: 'npm start'
+    volumes:
+      - ./web:/usr/src/app
+    ports:
+      - "3000:3000"
   plumber:
     build:
       context: ./server
@@ -20,5 +29,3 @@ services:
     #     delay: 5s
     #     max_attempts: 3
     #     window: 120s
-    ports: 
-      - "6379:6379"

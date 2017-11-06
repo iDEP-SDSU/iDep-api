@@ -9,9 +9,7 @@ KmeansDrive = R6Class("KmeansDrive",
 
     initialize = function(data) {
       self$mycolors <- sort(rainbow(20))[c(1,20,10,11,2,19,3,12,4,13,5,14,6,15,7,16,8,17,9,18)] # 20 colors for kNN clusters
-      self$heatColors <- rbind(greenred(75),bluered(75),colorpanel(75,"green","black","magenta"))
-
-      
+      self$heatColors <- rbind(greenred(75),bluered(75),colorpanel(75,"green","black","magenta"))      
       self$originData <- data
       self$preprocess()
     },
@@ -58,7 +56,6 @@ KmeansDrive = R6Class("KmeansDrive",
       afterMean <- kmean.result$x - apply(kmean.result$x,1,mean)
       self$heatmapData <- afterMean
     },
-    
     myheatmap2 = function (bar=NULL, n=-1, mycolor=1, clusterNames=NULL) {
       set.seed(2)
       # number of genes to show
@@ -69,7 +66,6 @@ KmeansDrive = R6Class("KmeansDrive",
         bar = bar[ix]
         x = x[ix,]
       }
-
       # this will cutoff very large values, which could skew the color
       x=as.matrix(x)-apply(x,1,mean)
       cutoff = median(unlist(x)) + 3*sd (unlist(x))

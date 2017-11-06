@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export default axios.create({ 
-  baseURL : "http://bioinformatics.sdstate.edu:8000"
+  baseURL : "http://bioinformatics.sdstate.edu:5432"
 })
