@@ -18,7 +18,7 @@ services:
       - ./server:/usr/local/src/plumber
     # restart: always
     ports:
-      - "8000:8000"
+      - "5432:8000"
   redis:
     image: redis:alpine
     ports:
